@@ -1,0 +1,36 @@
+{
+  "updated_at": "2026-05-27T16:35:59.187Z",
+  "total": 174,
+  "passed": 81,
+  "failed": 93,
+  "surfaces": [
+    {
+      "name": "other",
+      "bucket": "other",
+      "total": 144,
+      "passed": 64,
+      "failed": 80
+    },
+    {
+      "name": "api",
+      "bucket": "api",
+      "total": 17,
+      "passed": 17,
+      "failed": 0
+    },
+    {
+      "name": "smoke",
+      "bucket": "smoke",
+      "total": 8,
+      "passed": 0,
+      "failed": 8
+    },
+    {
+      "name": "visual",
+      "bucket": "visual",
+      "total": 5,
+      "passed": 0,
+      "failed": 5
+    }
+  ]
+}

@@ -1,1999 +1,610 @@
 {
-  "project": "ecolosophy-store",
-  "discovered_at": "2026-05-27T16:27:32.586Z",
-  "root": "/Users/italo/ecolosophy-store",
-  "totals": {
-    "pages": 33,
-    "forms": 2,
-    "endpoints": 44,
-    "links": 59,
-    "buttons": 66,
-    "tracker_pixels": 13,
-    "components": 29,
-    "lib_files": 6,
-    "layouts": 2
-  },
-  "pages": [
-    {
-      "route": "/account",
-      "file": "src/pages/account/index.astro",
-      "prerender": false,
-      "auth_required": true,
-      "forms": [],
-      "links": [
-        "/account/sign-in",
-        "/account/sign-up",
-        "/products/citrus-burst-concentrate"
-      ],
-      "buttons": [
-        {
-          "type": "button",
-          "id": "",
-          "onclick": true,
-          "text": "{})\"\n            style=\"background:#F08C5A;color:white;border:none;padding:10px "
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": true,
-          "text": "Copy code"
-        }
-      ],
-      "fetch_calls": [],
-      "trackers": [
-        "klaviyo"
-      ]
-    },
-    {
-      "route": "/admin/amazon",
-      "file": "src/pages/admin/amazon.astro",
-      "prerender": false,
-      "auth_required": false,
-      "forms": [],
-      "links": [
-        "https://sellercentral.amazon.com"
-      ],
-      "buttons": [],
-      "fetch_calls": [
-        {
-          "method": "unknown",
-          "url": "https://api.amazon.com/auth/o2/token"
-        },
-        {
-          "method": "unknown",
-          "url": "${HOST}/fba/inventory/v1/summaries?granularityType=Marketplace&granularityId=${MKT}&marketplaceIds=${MKT}&details=true"
-        },
-        {
-          "method": "unknown",
-          "url": "${HOST}/orders/v0/orders?MarketplaceIds=${MKT}&CreatedAfter=${encodeURIComponent(createdAfter)}"
-        },
-        {
-          "method": "unknown",
-          "url": "${HOST}/fba/inventory/v1/summaries?granularityType=Marketplace&granularityId=${MKT}&marketplaceIds=${MKT}&details=true"
-        },
-        {
-          "method": "unknown",
-          "url": "${HOST}/orders/v0/orders?MarketplaceIds=${MKT}&CreatedAfter=${encodeURIComponent(createdAfter)}"
-        }
-      ],
-      "trackers": []
-    },
-    {
-      "route": "/admin/analytics",
-      "file": "src/pages/admin/analytics.astro",
-      "prerender": false,
-      "auth_required": false,
-      "forms": [],
-      "links": [],
-      "buttons": [
-        {
-          "type": "button",
-          "id": "zerotouch-btn",
-          "onclick": false,
-          "text": "🤖 Auto-fill all (ZeroTouch)"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "Save"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "⚡ Test fire"
-        }
-      ],
-      "fetch_calls": [
-        {
-          "method": "unknown",
-          "url": "/api/integrations/"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/zerotouch/status"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/zerotouch/start"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/integrations/"
-        }
-      ],
-      "trackers": [
-        "tiktok_pixel",
-        "bing_uet",
-        "klaviyo"
-      ]
-    },
-    {
-      "route": "/admin/apps",
-      "file": "src/pages/admin/apps.astro",
-      "prerender": false,
-      "auth_required": false,
-      "forms": [],
-      "links": [
-        "/admin/settings",
-        "${it.dashboardUrl}",
-        "${it.dashboardUrl || "
-      ],
-      "buttons": [
-        {
-          "type": "button",
-          "id": "refreshAll",
-          "onclick": false,
-          "text": "↻ Refresh all"
-        },
-        {
-          "type": "button",
-          "id": "drawerClose",
-          "onclick": false,
-          "text": "×"
-        },
-        {
-          "type": "button",
-          "id": "${it.id}",
-          "onclick": false,
-          "text": "${ICONS[it.id] || '🔌'} ${it.name}\n            ${statusPill(it.status)}\n        "
-        },
-        {
-          "type": "button",
-          "id": "btn-test",
-          "onclick": false,
-          "text": "↻ Test connection"
-        },
-        {
-          "type": "button",
-          "id": "btn-disconnect",
-          "onclick": false,
-          "text": "Disconnect"
-        }
-      ],
-      "fetch_calls": [
-        {
-          "method": "unknown",
-          "url": "/api/integrations/test"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/integrations/health"
-        }
-      ],
-      "trackers": [
-        "meta_pixel",
-        "tiktok_pixel",
-        "bing_uet",
-        "klaviyo"
-      ]
-    },
-    {
-      "route": "/admin/calculator",
-      "file": "src/pages/admin/calculator.astro",
-      "prerender": false,
-      "auth_required": false,
-      "forms": [],
-      "links": [
-        "https://sellercentral.amazon.com/revcal"
-      ],
-      "buttons": [
-        {
-          "type": "button",
-          "id": "exportCsv",
-          "onclick": false,
-          "text": "Export CSV"
-        }
-      ],
-      "fetch_calls": [],
-      "trackers": []
-    },
-    {
-      "route": "/admin/content",
-      "file": "src/pages/admin/content.astro",
-      "prerender": false,
-      "auth_required": false,
-      "forms": [],
-      "links": [],
-      "buttons": [],
-      "fetch_calls": [],
-      "trackers": []
-    },
-    {
-      "route": "/admin/customers",
-      "file": "src/pages/admin/customers.astro",
-      "prerender": false,
-      "auth_required": false,
-      "forms": [],
-      "links": [
-        "https://dashboard.stripe.com/customers",
-        "/admin/settings"
-      ],
-      "buttons": [],
-      "fetch_calls": [],
-      "trackers": []
-    },
-    {
-      "route": "/admin/detox",
-      "file": "src/pages/admin/detox.astro",
-      "prerender": false,
-      "auth_required": false,
-      "forms": [],
-      "links": [
-        "https://ecolosophy.com/detox"
-      ],
-      "buttons": [
-        {
-          "type": "button",
-          "id": "exportCsv",
-          "onclick": false,
-          "text": "Export CSV"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "Resend"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "Pause"
-        }
-      ],
-      "fetch_calls": [
-        {
-          "method": "unknown",
-          "url": "https://api.resend.com/domains/${RESEND_DOMAIN_ID}"
-        },
-        {
-          "method": "unknown",
-          "url": "${SUBSCRIBE_ORIGIN}/api/resend"
-        },
-        {
-          "method": "unknown",
-          "url": "${SUBSCRIBE_ORIGIN}/api/pause"
-        },
-        {
-          "method": "unknown",
-          "url": "https://api.resend.com/domains/${RESEND_DOMAIN_ID}"
-        },
-        {
-          "method": "unknown",
-          "url": "${SUBSCRIBE_ORIGIN}/api/resend"
-        },
-        {
-          "method": "unknown",
-          "url": "${SUBSCRIBE_ORIGIN}/api/pause"
-        }
-      ],
-      "trackers": []
-    },
-    {
-      "route": "/admin/discounts",
-      "file": "src/pages/admin/discounts.astro",
-      "prerender": false,
-      "auth_required": false,
-      "forms": [],
-      "links": [
-        "https://dashboard.stripe.com/coupons"
-      ],
-      "buttons": [],
-      "fetch_calls": [],
-      "trackers": []
-    },
-    {
-      "route": "/admin/forbidden",
-      "file": "src/pages/admin/forbidden.astro",
-      "prerender": false,
-      "auth_required": true,
-      "forms": [],
-      "links": [
-        "/"
-      ],
-      "buttons": [],
-      "fetch_calls": [],
-      "trackers": []
-    },
-    {
-      "route": "/admin",
-      "file": "src/pages/admin/index.astro",
-      "prerender": false,
-      "auth_required": false,
-      "forms": [],
-      "links": [
-        "/admin/orders",
-        "/admin/seo",
-        "/admin/products",
-        "/admin/detox",
-        "/admin/content",
-        "/admin/analytics",
-        "/admin/settings"
-      ],
-      "buttons": [
-        {
-          "type": "button",
-          "id": "refresh-all",
-          "onclick": false,
-          "text": "↻ Refresh"
-        }
-      ],
-      "fetch_calls": [
-        {
-          "method": "unknown",
-          "url": "/api/dashboard/stripe"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/dashboard/detox"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/dashboard/resend"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/dashboard/cloudflare"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/dashboard/pagespeed?url=https://ecolosophy.com"
-        }
-      ],
-      "trackers": []
-    },
-    {
-      "route": "/admin/marketing",
-      "file": "src/pages/admin/marketing.astro",
-      "prerender": false,
-      "auth_required": false,
-      "forms": [],
-      "links": [
-        "https://www.klaviyo.com/dashboard",
-        "https://business.facebook.com/adsmanager",
-        "https://ads.tiktok.com",
-        "https://ads.google.com",
-        "https://ads.pinterest.com",
-        "https://www.linkedin.com/campaignmanager"
-      ],
-      "buttons": [],
-      "fetch_calls": [],
-      "trackers": [
-        "tiktok_pixel",
-        "klaviyo"
-      ]
-    },
-    {
-      "route": "/admin/orders",
-      "file": "src/pages/admin/orders.astro",
-      "prerender": false,
-      "auth_required": false,
-      "forms": [],
-      "links": [
-        "https://dashboard.stripe.com/payments",
-        "/admin/settings"
-      ],
-      "buttons": [],
-      "fetch_calls": [],
-      "trackers": []
-    },
-    {
-      "route": "/admin/pipeline",
-      "file": "src/pages/admin/pipeline.astro",
-      "prerender": false,
-      "auth_required": false,
-      "forms": [],
-      "links": [
-        "/api/admin/pipeline-add",
-        "https://akiflow.com/settings/integrations"
-      ],
-      "buttons": [],
-      "fetch_calls": [],
-      "trackers": []
-    },
-    {
-      "route": "/admin/products",
-      "file": "src/pages/admin/products.astro",
-      "prerender": false,
-      "auth_required": false,
-      "forms": [],
-      "links": [
-        "/collections/all",
-        "https://admin.shopify.com/store/ecolosophy/products"
-      ],
-      "buttons": [],
-      "fetch_calls": [],
-      "trackers": []
-    },
-    {
-      "route": "/admin/seo",
-      "file": "src/pages/admin/seo.astro",
-      "prerender": false,
-      "auth_required": false,
-      "forms": [
-        {
-          "action": "",
-          "method": "get",
-          "id": "kw-add-form",
-          "inputs": []
-        },
-        {
-          "action": "",
-          "method": "get",
-          "id": "",
-          "inputs": [
-            {
-              "name": "key",
-              "type": "text",
-              "required": false
-            }
-          ]
-        }
-      ],
-      "links": [
-        "https://ecolosophy.com",
-        "${escape(it.signup_url)}",
-        "${escape(latest.url)}",
-        "https://serpapi.com/users/sign_up",
-        "${escape(rk.latest.url)}",
-        "${escape(p.url)}",
-        "https://${escape(co.domain)}",
-        "${escape(r.url)}",
-        "${escape(s.url)}",
-        "${escape(f.url)}"
-      ],
-      "buttons": [
-        {
-          "type": "button",
-          "id": "cron-run",
-          "onclick": false,
-          "text": "⚡ Refresh now"
-        },
-        {
-          "type": "button",
-          "id": "seo-refresh",
-          "onclick": false,
-          "text": "↻ Reload"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "Overview"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "Integrations"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "Keywords"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "Rankings"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "Content"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "Competitors"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "AI Search"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "On-Page"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "Backlinks"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "Files"
-        },
-        {
-          "type": "submit",
-          "id": "",
-          "onclick": false,
-          "text": "+ Add keyword"
-        },
-        {
-          "type": "button",
-          "id": "rankings-refresh",
-          "onclick": false,
-          "text": "↻ Refresh now"
-        },
-        {
-          "type": "button",
-          "id": "competitors-refresh",
-          "onclick": false,
-          "text": "↻ Refresh"
-        },
-        {
-          "type": "button",
-          "id": "ai-run",
-          "onclick": false,
-          "text": "Run check (Claude)"
-        },
-        {
-          "type": "submit",
-          "id": "",
-          "onclick": false,
-          "text": "Save"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "load"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "✕"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "Re-audit"
-        }
-      ],
-      "fetch_calls": [
-        {
-          "method": "unknown",
-          "url": "/api/seo/integrations"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/seo/integrations"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/seo/keywords"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/seo/rankings"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/seo/keywords?remove="
-        },
-        {
-          "method": "unknown",
-          "url": "/api/seo/trends?keyword="
-        },
-        {
-          "method": "unknown",
-          "url": "/api/seo/keywords?add="
-        },
-        {
-          "method": "unknown",
-          "url": "/api/seo/rankings"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/seo/rankings?refresh=1"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/seo/content-inventory"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/seo/competitors"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/seo/ai-citation-check?engine=claude"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/seo/schema-check?url="
-        },
-        {
-          "method": "unknown",
-          "url": "/api/dashboard/pagespeed?url="
-        },
-        {
-          "method": "unknown",
-          "url": "/api/seo/backlinks"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/seo/llms-txt"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/cron/seo-refresh"
-        }
-      ],
-      "trackers": [
-        "bing_uet"
-      ]
-    },
-    {
-      "route": "/admin/settings",
-      "file": "src/pages/admin/settings.astro",
-      "prerender": false,
-      "auth_required": false,
-      "forms": [],
-      "links": [],
-      "buttons": [
-        {
-          "type": "button",
-          "id": "inviteBtn",
-          "onclick": false,
-          "text": "+ Invite teammate"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "📷"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "✏️ Edit"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "⬆️ Promote"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "⬇️ Demote"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "{m.status === 'suspended' ? '✅ Reactivate' : '🚫 Suspend'}"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "🗑️"
-        },
-        {
-          "type": "button",
-          "id": "editCancel",
-          "onclick": false,
-          "text": "Cancel"
-        },
-        {
-          "type": "button",
-          "id": "editSave",
-          "onclick": false,
-          "text": "Save changes"
-        },
-        {
-          "type": "button",
-          "id": "inviteCancel",
-          "onclick": false,
-          "text": "Cancel"
-        },
-        {
-          "type": "button",
-          "id": "inviteSubmit",
-          "onclick": false,
-          "text": "Send invite"
-        }
-      ],
-      "fetch_calls": [
-        {
-          "method": "unknown",
-          "url": "/api/team/${encodeURIComponent(currentEmail)}/avatar"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/team/${encodeURIComponent(currentEmail)}/avatar"
-        }
-      ],
-      "trackers": []
-    },
-    {
-      "route": "/admin/shipmonk",
-      "file": "src/pages/admin/shipmonk.astro",
-      "prerender": false,
-      "auth_required": false,
-      "forms": [],
-      "links": [
-        "https://app.shipmonk.com",
-        "/api/test-relay",
-        "/admin/settings",
-        "https://app.shipmonk.com/"
-      ],
-      "buttons": [],
-      "fetch_calls": [
-        {
-          "method": "unknown",
-          "url": "${HOST}/stores/${storeId}/orders?per_page=25"
-        },
-        {
-          "method": "unknown",
-          "url": "${HOST}/stores/${storeId}/products?per_page=100"
-        },
-        {
-          "method": "unknown",
-          "url": "${HOST}/stores/${storeId}/orders?per_page=25"
-        },
-        {
-          "method": "unknown",
-          "url": "${HOST}/stores/${storeId}/products?per_page=100"
-        }
-      ],
-      "trackers": []
-    },
-    {
-      "route": "/admin/shopify",
-      "file": "src/pages/admin/shopify.astro",
-      "prerender": false,
-      "auth_required": false,
-      "forms": [],
-      "links": [
-        "/api/test-relay"
-      ],
-      "buttons": [],
-      "fetch_calls": [
-        {
-          "method": "unknown",
-          "url": "${BASE}${path}"
-        },
-        {
-          "method": "unknown",
-          "url": "${BASE}${path}"
-        }
-      ],
-      "trackers": []
-    },
-    {
-      "route": "/admin/sign-in",
-      "file": "src/pages/admin/sign-in.astro",
-      "prerender": false,
-      "auth_required": false,
-      "forms": [],
-      "links": [
-        "https://dashboard.clerk.com",
-        "/admin"
-      ],
-      "buttons": [],
-      "fetch_calls": [],
-      "trackers": []
-    },
-    {
-      "route": "/admin/social",
-      "file": "src/pages/admin/social.astro",
-      "prerender": false,
-      "auth_required": false,
-      "forms": [],
-      "links": [
-        "https://buffer.com/app",
-        "https://app.later.com"
-      ],
-      "buttons": [],
-      "fetch_calls": [],
-      "trackers": [
-        "tiktok_pixel"
-      ]
-    },
-    {
-      "route": "/admin/support/:id",
-      "file": "src/pages/admin/support/[id].astro",
-      "prerender": false,
-      "auth_required": false,
-      "forms": [],
-      "links": [
-        "/admin/support"
-      ],
-      "buttons": [
-        {
-          "type": "button",
-          "id": "snoozeBtn",
-          "onclick": false,
-          "text": "⏰ Snooze 24h"
-        },
-        {
-          "type": "button",
-          "id": "resolveBtn",
-          "onclick": false,
-          "text": "✓ Resolve"
-        },
-        {
-          "type": "button",
-          "id": "sendOnlyBtn",
-          "onclick": false,
-          "text": "Send reply"
-        },
-        {
-          "type": "button",
-          "id": "sendResolveBtn",
-          "onclick": false,
-          "text": "Send & resolve"
-        },
-        {
-          "type": "button",
-          "id": "refundBtn",
-          "onclick": false,
-          "text": "💸 Issue full refund"
-        }
-      ],
-      "fetch_calls": [
-        {
-          "method": "unknown",
-          "url": "/api/support/${ticketId}/reply"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/support/${ticketId}/resolve"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/support/${ticketId}/resolve"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/support/${ticketId}/snooze"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/support/${ticketId}/assign"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/support/${ticketId}/resolve"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/support/${ticketId}/snooze"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/support/${ticketId}/refund"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/support/${ticketId}/reply"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/support/${ticketId}/resolve"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/support/${ticketId}/resolve"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/support/${ticketId}/snooze"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/support/${ticketId}/assign"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/support/${ticketId}/resolve"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/support/${ticketId}/snooze"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/support/${ticketId}/refund"
-        }
-      ],
-      "trackers": []
-    },
-    {
-      "route": "/admin/support",
-      "file": "src/pages/admin/support.astro",
-      "prerender": false,
-      "auth_required": false,
-      "forms": [],
-      "links": [
-        "/admin/support/${t.id}"
-      ],
-      "buttons": [
-        {
-          "type": "button",
-          "id": "newTicket",
-          "onclick": false,
-          "text": "+ New ticket"
-        },
-        {
-          "type": "button",
-          "id": "wireKV",
-          "onclick": false,
-          "text": "Wire up KV →"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "All ({tickets.length})"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "Open ({open})"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "Pending ({pending})"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "Snoozed ({snoozed})"
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "Resolved ({resolved})"
-        },
-        {
-          "type": "button",
-          "id": "copyCmd",
-          "onclick": false,
-          "text": "Copy"
-        },
-        {
-          "type": "button",
-          "id": "copyToml",
-          "onclick": false,
-          "text": "Copy"
-        },
-        {
-          "type": "button",
-          "id": "kvClose",
-          "onclick": false,
-          "text": "Close"
-        },
-        {
-          "type": "button",
-          "id": "${t.id}",
-          "onclick": false,
-          "text": "Resolve"
-        },
-        {
-          "type": "button",
-          "id": "${t.id}",
-          "onclick": false,
-          "text": "Snooze 24h"
-        }
-      ],
-      "fetch_calls": [
-        {
-          "method": "unknown",
-          "url": "/api/support/${id}/${action}"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/support/${id}/assign"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/support/${id}/status"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/support"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/support"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/support/${id}/${action}"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/support/${id}/assign"
-        },
-        {
-          "method": "unknown",
-          "url": "/api/support/${id}/status"
-        }
-      ],
-      "trackers": []
-    },
-    {
-      "route": "/blog/*",
-      "file": "src/pages/blog/[...slug].astro",
-      "prerender": null,
-      "auth_required": false,
-      "forms": [],
-      "links": [],
-      "buttons": [],
-      "fetch_calls": [],
-      "trackers": []
-    },
-    {
-      "route": "/blog",
-      "file": "src/pages/blog/index.astro",
-      "prerender": null,
-      "auth_required": false,
-      "forms": [],
-      "links": [],
-      "buttons": [],
-      "fetch_calls": [],
-      "trackers": []
-    },
-    {
-      "route": "/cart",
-      "file": "src/pages/cart.astro",
-      "prerender": null,
-      "auth_required": false,
-      "forms": [],
-      "links": [
-        "/collections/all"
-      ],
-      "buttons": [
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "Proceed to Checkout"
-        }
-      ],
-      "fetch_calls": [],
-      "trackers": []
-    },
-    {
-      "route": "/collections/all",
-      "file": "src/pages/collections/all.astro",
-      "prerender": null,
-      "auth_required": false,
-      "forms": [],
-      "links": [],
-      "buttons": [],
-      "fetch_calls": [],
-      "trackers": []
-    },
-    {
-      "route": "/index",
-      "file": "src/pages/index.astro",
-      "prerender": null,
-      "auth_required": false,
-      "forms": [],
-      "links": [
-        "/collections/all",
-        "/collections/concentrates"
-      ],
-      "buttons": [],
-      "fetch_calls": [],
-      "trackers": [
-        "tiktok_pixel"
-      ]
-    },
-    {
-      "route": "/pages/faq",
-      "file": "src/pages/pages/faq.astro",
-      "prerender": null,
-      "auth_required": false,
-      "forms": [],
-      "links": [],
-      "buttons": [],
-      "fetch_calls": [],
-      "trackers": []
-    },
-    {
-      "route": "/pages/how-it-works",
-      "file": "src/pages/pages/how-it-works.astro",
-      "prerender": null,
-      "auth_required": false,
-      "forms": [],
-      "links": [
-        "/the-cleaning-playbook.pdf"
-      ],
-      "buttons": [],
-      "fetch_calls": [],
-      "trackers": []
-    },
-    {
-      "route": "/pages/our-story",
-      "file": "src/pages/pages/our-story.astro",
-      "prerender": null,
-      "auth_required": false,
-      "forms": [],
-      "links": [],
-      "buttons": [],
-      "fetch_calls": [],
-      "trackers": []
-    },
-    {
-      "route": "/products/:handle",
-      "file": "src/pages/products/[handle].astro",
-      "prerender": true,
-      "auth_required": false,
-      "forms": [],
-      "links": [],
-      "buttons": [
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": ""
-        },
-        {
-          "type": "button",
-          "id": "",
-          "onclick": false,
-          "text": "Add to Cart — {product.displayPrice}"
-        }
-      ],
-      "fetch_calls": [],
-      "trackers": []
-    },
-    {
-      "route": "/thank-you",
-      "file": "src/pages/thank-you.astro",
-      "prerender": null,
-      "auth_required": false,
-      "forms": [],
-      "links": [
-        "/pages/how-it-works",
-        "/blog"
-      ],
-      "buttons": [],
-      "fetch_calls": [],
-      "trackers": []
-    }
-  ],
-  "endpoints": [
-    {
-      "route": "/api/chat",
-      "file": "src/pages/api/chat.ts",
-      "methods": [
-        "POST"
-      ],
-      "auth_required": false,
-      "reads_body": true
-    },
-    {
-      "route": "/api/checkout",
-      "file": "src/pages/api/checkout.ts",
-      "methods": [
-        "POST"
-      ],
-      "auth_required": false,
-      "reads_body": true
-    },
-    {
-      "route": "/api/cron/seo-refresh",
-      "file": "src/pages/api/cron/seo-refresh.ts",
-      "methods": [
-        "GET",
-        "POST"
-      ],
-      "auth_required": true,
-      "reads_body": false
-    },
-    {
-      "route": "/api/dashboard/cloudflare",
-      "file": "src/pages/api/dashboard/cloudflare.ts",
-      "methods": [
-        "GET"
-      ],
-      "auth_required": false,
-      "reads_body": false
-    },
-    {
-      "route": "/api/dashboard/detox",
-      "file": "src/pages/api/dashboard/detox.ts",
-      "methods": [
-        "GET"
-      ],
-      "auth_required": false,
-      "reads_body": false
-    },
-    {
-      "route": "/api/dashboard/pagespeed",
-      "file": "src/pages/api/dashboard/pagespeed.ts",
-      "methods": [
-        "GET"
-      ],
-      "auth_required": false,
-      "reads_body": false
-    },
-    {
-      "route": "/api/dashboard/resend",
-      "file": "src/pages/api/dashboard/resend.ts",
-      "methods": [
-        "GET"
-      ],
-      "auth_required": false,
-      "reads_body": false
-    },
-    {
-      "route": "/api/dashboard/stripe",
-      "file": "src/pages/api/dashboard/stripe.ts",
-      "methods": [
-        "GET"
-      ],
-      "auth_required": false,
-      "reads_body": false
-    },
-    {
-      "route": "/api/healthcheck",
-      "file": "src/pages/api/healthcheck.ts",
-      "methods": [
-        "GET"
-      ],
-      "auth_required": false,
-      "reads_body": false
-    },
-    {
-      "route": "/api/integrations/:slug/save",
-      "file": "src/pages/api/integrations/[slug]/save.ts",
-      "methods": [
-        "POST"
-      ],
-      "auth_required": false,
-      "reads_body": true
-    },
-    {
-      "route": "/api/integrations/:slug/test",
-      "file": "src/pages/api/integrations/[slug]/test.ts",
-      "methods": [
-        "POST"
-      ],
-      "auth_required": false,
-      "reads_body": false
-    },
-    {
-      "route": "/api/integrations/health",
-      "file": "src/pages/api/integrations/health.ts",
-      "methods": [
-        "GET"
-      ],
-      "auth_required": false,
-      "reads_body": false
-    },
-    {
-      "route": "/api/integrations/test",
-      "file": "src/pages/api/integrations/test.ts",
-      "methods": [
-        "POST"
-      ],
-      "auth_required": false,
-      "reads_body": true
-    },
-    {
-      "route": "/api/newsletter",
-      "file": "src/pages/api/newsletter.ts",
-      "methods": [
-        "POST"
-      ],
-      "auth_required": false,
-      "reads_body": true
-    },
-    {
-      "route": "/api/seo/ai-citation-check",
-      "file": "src/pages/api/seo/ai-citation-check.ts",
-      "methods": [
-        "GET"
-      ],
-      "auth_required": false,
-      "reads_body": false
-    },
-    {
-      "route": "/api/seo/backlinks",
-      "file": "src/pages/api/seo/backlinks.ts",
-      "methods": [
-        "GET"
-      ],
-      "auth_required": false,
-      "reads_body": false
-    },
-    {
-      "route": "/api/seo/competitors",
-      "file": "src/pages/api/seo/competitors.ts",
-      "methods": [
-        "GET",
-        "POST"
-      ],
-      "auth_required": false,
-      "reads_body": true
-    },
-    {
-      "route": "/api/seo/content-inventory",
-      "file": "src/pages/api/seo/content-inventory.ts",
-      "methods": [
-        "GET"
-      ],
-      "auth_required": false,
-      "reads_body": false
-    },
-    {
-      "route": "/api/seo/gsc",
-      "file": "src/pages/api/seo/gsc.ts",
-      "methods": [
-        "GET"
-      ],
-      "auth_required": false,
-      "reads_body": false
-    },
-    {
-      "route": "/api/seo/integrations",
-      "file": "src/pages/api/seo/integrations.ts",
-      "methods": [
-        "GET",
-        "POST"
-      ],
-      "auth_required": false,
-      "reads_body": true
-    },
-    {
-      "route": "/api/seo/keywords",
-      "file": "src/pages/api/seo/keywords.ts",
-      "methods": [
-        "GET",
-        "POST"
-      ],
-      "auth_required": false,
-      "reads_body": true
-    },
-    {
-      "route": "/api/seo/llms-txt",
-      "file": "src/pages/api/seo/llms-txt.ts",
-      "methods": [
-        "GET"
-      ],
-      "auth_required": false,
-      "reads_body": false
-    },
-    {
-      "route": "/api/seo/rankings",
-      "file": "src/pages/api/seo/rankings.ts",
-      "methods": [
-        "GET",
-        "POST"
-      ],
-      "auth_required": false,
-      "reads_body": false
-    },
-    {
-      "route": "/api/seo/schema-check",
-      "file": "src/pages/api/seo/schema-check.ts",
-      "methods": [
-        "GET"
-      ],
-      "auth_required": false,
-      "reads_body": false
-    },
-    {
-      "route": "/api/seo/trends",
-      "file": "src/pages/api/seo/trends.ts",
-      "methods": [
-        "GET"
-      ],
-      "auth_required": false,
-      "reads_body": false
-    },
-    {
-      "route": "/api/support/:id/assign",
-      "file": "src/pages/api/support/[id]/assign.ts",
-      "methods": [
-        "POST"
-      ],
-      "auth_required": false,
-      "reads_body": true
-    },
-    {
-      "route": "/api/support/:id/refund",
-      "file": "src/pages/api/support/[id]/refund.ts",
-      "methods": [
-        "POST"
-      ],
-      "auth_required": false,
-      "reads_body": true
-    },
-    {
-      "route": "/api/support/:id/reply",
-      "file": "src/pages/api/support/[id]/reply.ts",
-      "methods": [
-        "POST"
-      ],
-      "auth_required": false,
-      "reads_body": true
-    },
-    {
-      "route": "/api/support/:id/resolve",
-      "file": "src/pages/api/support/[id]/resolve.ts",
-      "methods": [
-        "POST"
-      ],
-      "auth_required": false,
-      "reads_body": false
-    },
-    {
-      "route": "/api/support/:id/snooze",
-      "file": "src/pages/api/support/[id]/snooze.ts",
-      "methods": [
-        "POST"
-      ],
-      "auth_required": false,
-      "reads_body": true
-    },
-    {
-      "route": "/api/support/:id/status",
-      "file": "src/pages/api/support/[id]/status.ts",
-      "methods": [
-        "POST"
-      ],
-      "auth_required": false,
-      "reads_body": true
-    },
-    {
-      "route": "/api/support/:id",
-      "file": "src/pages/api/support/[id].ts",
-      "methods": [
-        "GET",
-        "DELETE"
-      ],
-      "auth_required": false,
-      "reads_body": false
-    },
-    {
-      "route": "/api/support",
-      "file": "src/pages/api/support/index.ts",
-      "methods": [
-        "GET",
-        "POST"
-      ],
-      "auth_required": false,
-      "reads_body": true
-    },
-    {
-      "route": "/api/team/:email/avatar",
-      "file": "src/pages/api/team/[email]/avatar.ts",
-      "methods": [
-        "POST"
-      ],
-      "auth_required": true,
-      "reads_body": true
-    },
-    {
-      "route": "/api/team/:email/role",
-      "file": "src/pages/api/team/[email]/role.ts",
-      "methods": [
-        "POST"
-      ],
-      "auth_required": true,
-      "reads_body": true
-    },
-    {
-      "route": "/api/team/:email/suspend",
-      "file": "src/pages/api/team/[email]/suspend.ts",
-      "methods": [
-        "POST"
-      ],
-      "auth_required": true,
-      "reads_body": true
-    },
-    {
-      "route": "/api/team/:email",
-      "file": "src/pages/api/team/[email].ts",
-      "methods": [
-        "GET",
-        "PUT",
-        "DELETE"
-      ],
-      "auth_required": true,
-      "reads_body": true
-    },
-    {
-      "route": "/api/team",
-      "file": "src/pages/api/team/index.ts",
-      "methods": [
-        "GET",
-        "POST"
-      ],
-      "auth_required": true,
-      "reads_body": true
-    },
-    {
-      "route": "/api/test-relay",
-      "file": "src/pages/api/test-relay.ts",
-      "methods": [
-        "GET",
-        "POST"
-      ],
-      "auth_required": false,
-      "reads_body": false
-    },
-    {
-      "route": "/api/webhooks/shipmonk",
-      "file": "src/pages/api/webhooks/shipmonk.ts",
-      "methods": [
-        "POST"
-      ],
-      "auth_required": false,
-      "reads_body": true
-    },
-    {
-      "route": "/api/webhooks/stripe",
-      "file": "src/pages/api/webhooks/stripe.ts",
-      "methods": [
-        "POST"
-      ],
-      "auth_required": false,
-      "reads_body": true
-    },
-    {
-      "route": "/api/zerotouch/start",
-      "file": "src/pages/api/zerotouch/start.ts",
-      "methods": [
-        "POST"
-      ],
-      "auth_required": false,
-      "reads_body": true
-    },
-    {
-      "route": "/api/zerotouch/status",
-      "file": "src/pages/api/zerotouch/status.ts",
-      "methods": [
-        "GET"
-      ],
-      "auth_required": false,
-      "reads_body": false
-    },
-    {
-      "route": "/_scheduled",
-      "file": "functions/_scheduled.ts",
-      "methods": [
-        "ALL"
-      ],
-      "auth_required": false,
-      "reads_body": false
-    }
-  ],
-  "components": [
-    {
-      "name": "AnnouncementBar",
-      "file": "src/components/AnnouncementBar.astro",
-      "forms": 0,
-      "buttons": 0,
-      "fetch_calls": 0
-    },
-    {
-      "name": "BlogCard",
-      "file": "src/components/BlogCard.astro",
-      "forms": 0,
-      "buttons": 0,
-      "fetch_calls": 0
-    },
-    {
-      "name": "CartDrawer",
-      "file": "src/components/CartDrawer.astro",
-      "forms": 0,
-      "buttons": 2,
-      "fetch_calls": 0
-    },
-    {
-      "name": "ChatWidget",
-      "file": "src/components/ChatWidget.astro",
-      "forms": 1,
-      "buttons": 3,
-      "fetch_calls": 1
-    },
-    {
-      "name": "ComparisonTable",
-      "file": "src/components/ComparisonTable.astro",
-      "forms": 0,
-      "buttons": 0,
-      "fetch_calls": 0
-    },
-    {
-      "name": "FAQ",
-      "file": "src/components/FAQ.astro",
-      "forms": 0,
-      "buttons": 0,
-      "fetch_calls": 0
-    },
-    {
-      "name": "Footer",
-      "file": "src/components/Footer.astro",
-      "forms": 0,
-      "buttons": 0,
-      "fetch_calls": 0
-    },
-    {
-      "name": "FounderStory",
-      "file": "src/components/FounderStory.astro",
-      "forms": 0,
-      "buttons": 0,
-      "fetch_calls": 0
-    },
-    {
-      "name": "FoursFriendsSection",
-      "file": "src/components/FoursFriendsSection.astro",
-      "forms": 0,
-      "buttons": 0,
-      "fetch_calls": 0
-    },
-    {
-      "name": "Header",
-      "file": "src/components/Header.astro",
-      "forms": 0,
-      "buttons": 3,
-      "fetch_calls": 0
-    },
-    {
-      "name": "Hero",
-      "file": "src/components/Hero.astro",
-      "forms": 0,
-      "buttons": 0,
-      "fetch_calls": 0
-    },
-    {
-      "name": "HeroBackground",
-      "file": "src/components/HeroBackground.astro",
-      "forms": 0,
-      "buttons": 0,
-      "fetch_calls": 0
-    },
-    {
-      "name": "HookBanner",
-      "file": "src/components/HookBanner.astro",
-      "forms": 0,
-      "buttons": 0,
-      "fetch_calls": 0
-    },
-    {
-      "name": "HowItWorks",
-      "file": "src/components/HowItWorks.astro",
-      "forms": 0,
-      "buttons": 0,
-      "fetch_calls": 0
-    },
-    {
-      "name": "IngredientsShowcase",
-      "file": "src/components/IngredientsShowcase.astro",
-      "forms": 0,
-      "buttons": 0,
-      "fetch_calls": 0
-    },
-    {
-      "name": "Newsletter",
-      "file": "src/components/Newsletter.astro",
-      "forms": 1,
-      "buttons": 1,
-      "fetch_calls": 1
-    },
-    {
-      "name": "PairItWith",
-      "file": "src/components/PairItWith.astro",
-      "forms": 0,
-      "buttons": 1,
-      "fetch_calls": 0
-    },
-    {
-      "name": "ProblemSolution",
-      "file": "src/components/ProblemSolution.astro",
-      "forms": 0,
-      "buttons": 0,
-      "fetch_calls": 0
-    },
-    {
-      "name": "ProductCard",
-      "file": "src/components/ProductCard.astro",
-      "forms": 0,
-      "buttons": 1,
-      "fetch_calls": 0
-    },
-    {
-      "name": "ProductGrid",
-      "file": "src/components/ProductGrid.astro",
-      "forms": 0,
-      "buttons": 0,
-      "fetch_calls": 0
-    },
-    {
-      "name": "ScienceSection",
-      "file": "src/components/ScienceSection.astro",
-      "forms": 0,
-      "buttons": 0,
-      "fetch_calls": 0
-    },
-    {
-      "name": "StickyCart",
-      "file": "src/components/StickyCart.astro",
-      "forms": 0,
-      "buttons": 1,
-      "fetch_calls": 0
-    },
-    {
-      "name": "TeamHeadshots",
-      "file": "src/components/TeamHeadshots.astro",
-      "forms": 0,
-      "buttons": 0,
-      "fetch_calls": 0
-    },
-    {
-      "name": "Testimonials",
-      "file": "src/components/Testimonials.astro",
-      "forms": 0,
-      "buttons": 1,
-      "fetch_calls": 0
-    },
-    {
-      "name": "Tracking",
-      "file": "src/components/Tracking.astro",
-      "forms": 0,
-      "buttons": 0,
-      "fetch_calls": 0
-    },
-    {
-      "name": "TrustBar",
-      "file": "src/components/TrustBar.astro",
-      "forms": 0,
-      "buttons": 0,
-      "fetch_calls": 0
-    },
-    {
-      "name": "WaveDivider",
-      "file": "src/components/WaveDivider.astro",
-      "forms": 0,
-      "buttons": 0,
-      "fetch_calls": 0
-    },
-    {
-      "name": "WhyFamiliesSwitching",
-      "file": "src/components/WhyFamiliesSwitching.astro",
-      "forms": 0,
-      "buttons": 1,
-      "fetch_calls": 0
-    },
-    {
-      "name": "ZentangleBackground",
-      "file": "src/components/ZentangleBackground.astro",
-      "forms": 0,
-      "buttons": 0,
-      "fetch_calls": 0
-    }
-  ],
-  "lib": [
-    {
-      "file": "src/lib/admin-allowlist.ts",
-      "exports": [
-        {
-          "name": "isAllowed",
-          "params": "email: string | null | undefined"
-        },
-        {
-          "name": "isSuperAdmin",
-          "params": "email: string | null | undefined"
-        },
-        {
-          "name": "roleFor",
-          "params": "email: string | null | undefined"
-        }
-      ]
-    },
-    {
-      "file": "src/lib/seo-store.ts",
-      "exports": [
-        {
-          "name": "getTargetKeywords",
-          "params": "env: any"
-        },
-        {
-          "name": "setTargetKeywords",
-          "params": "env: any, keywords: string[]"
-        },
-        {
-          "name": "getCompetitors",
-          "params": "env: any"
-        },
-        {
-          "name": "setCompetitors",
-          "params": "env: any, competitors: string[]"
-        },
-        {
-          "name": "getIntegrations",
-          "params": "env: any"
-        },
-        {
-          "name": "setIntegration",
-          "params": "env: any, slug: string, record: IntegrationRecord"
-        },
-        {
-          "name": "getIntegrationKey",
-          "params": "env: any, slug: string"
-        },
-        {
-          "name": "saveRankingSnapshot",
-          "params": "env: any, date: string, snapshot: Record<string, RankingSnapshot>"
-        },
-        {
-          "name": "getRankingSnapshot",
-          "params": "env: any, date: string"
-        },
-        {
-          "name": "getLatestRankings",
-          "params": "env: any"
-        },
-        {
-          "name": "getRankingHistory",
-          "params": "env: any, keyword: string, days = 30"
-        },
-        {
-          "name": "saveCitationSnapshot",
-          "params": "env: any, date: string, snapshot: CitationSnapshot"
-        },
-        {
-          "name": "getCitationHistory",
-          "params": "env: any, days = 30"
-        },
-        {
-          "name": "todayISO",
-          "params": ""
-        }
-      ]
-    },
-    {
-      "file": "src/lib/shopify-relay.ts",
-      "exports": [
-        {
-          "name": "createShopifyOrderFromStripe",
-          "params": "opts: {\n  storeDomain: string;\n  adminToken: string;\n  orderNumber: string;       // our internal ECO-XXXX number; goes into note + tags\n  customer: RelayCustomer;\n  shipping: RelayShippingAddress;\n  items: RelayLineItem[];\n  subtotalCents: number;\n  totalCents: number;\n  stripeSessionId: string;\n  testMode?: boolean;        // if true: $0 line items, tag with \"test-relay\"\n}"
-        },
-        {
-          "name": "pingShopifyRelay",
-          "params": "storeDomain: string,\n  adminToken: string,"
-        }
-      ]
-    },
-    {
-      "file": "src/lib/support-store.ts",
-      "exports": [
-        {
-          "name": "getStore",
-          "params": "env: any"
-        },
-        {
-          "name": "newId",
-          "params": ""
-        }
-      ]
-    },
-    {
-      "file": "src/lib/team-store.ts",
-      "exports": [
-        {
-          "name": "listMembers",
-          "params": "env?: any"
-        },
-        {
-          "name": "getMember",
-          "params": "email: string, env?: any"
-        },
-        {
-          "name": "upsertMember",
-          "params": "input: Partial<TeamMember> & { email: string }, env?: any"
-        },
-        {
-          "name": "removeMember",
-          "params": "email: string, env?: any"
-        },
-        {
-          "name": "setRole",
-          "params": "email: string, role: TeamRole, env?: any"
-        },
-        {
-          "name": "setSuspended",
-          "params": "email: string, suspended: boolean, env?: any"
-        },
-        {
-          "name": "setAvatar",
-          "params": "email: string, avatar: string, env?: any"
-        },
-        {
-          "name": "requireSuperAdmin",
-          "params": "request: Request, env?: any"
-        }
-      ]
-    },
-    {
-      "file": "src/lib/tracking-events.ts",
-      "exports": [
-        {
-          "name": "trackViewItem",
-          "params": "item: CommerceItem"
-        },
-        {
-          "name": "trackAddToCart",
-          "params": "item: CommerceItem"
-        },
-        {
-          "name": "trackBeginCheckout",
-          "params": "items: CommerceItem[], totalValue: number, currency = 'USD'"
-        },
-        {
-          "name": "trackPurchase",
-          "params": "orderId: string, items: CommerceItem[], totalValue: number, currency = 'USD'"
-        }
-      ]
-    }
-  ],
-  "layouts": [
-    {
-      "file": "src/layouts/AdminBase.astro",
-      "nav_links": [
-        "/admin",
-        "/admin/settings",
-        "/admin/sign-in",
-        "https://ecolosophy.com"
-      ]
-    },
-    {
-      "file": "src/layouts/Base.astro",
-      "nav_links": []
+  "version": 1,
+  "project_type": "astro",
+  "project_dir": "/Users/italo/ecolosophy-store",
+  "base_url": "http://localhost:4321",
+  "generated_at": "2026-05-27T16:34:00.454Z",
+  "surfaces": [
+    {
+      "id": "page:/account",
+      "type": "page",
+      "path": "/account",
+      "bucket": "auth",
+      "requires_auth": true,
+      "source_file": "src/pages/account/index.astro"
+    },
+    {
+      "id": "page:/admin/amazon",
+      "type": "page",
+      "path": "/admin/amazon",
+      "bucket": "admin",
+      "requires_auth": true,
+      "source_file": "src/pages/admin/amazon.astro"
+    },
+    {
+      "id": "page:/admin/analytics",
+      "type": "page",
+      "path": "/admin/analytics",
+      "bucket": "admin",
+      "requires_auth": true,
+      "source_file": "src/pages/admin/analytics.astro"
+    },
+    {
+      "id": "page:/admin/apps",
+      "type": "page",
+      "path": "/admin/apps",
+      "bucket": "admin",
+      "requires_auth": true,
+      "source_file": "src/pages/admin/apps.astro"
+    },
+    {
+      "id": "page:/admin/calculator",
+      "type": "page",
+      "path": "/admin/calculator",
+      "bucket": "admin",
+      "requires_auth": true,
+      "source_file": "src/pages/admin/calculator.astro"
+    },
+    {
+      "id": "page:/admin/content",
+      "type": "page",
+      "path": "/admin/content",
+      "bucket": "admin",
+      "requires_auth": true,
+      "source_file": "src/pages/admin/content.astro"
+    },
+    {
+      "id": "page:/admin/customers",
+      "type": "page",
+      "path": "/admin/customers",
+      "bucket": "admin",
+      "requires_auth": true,
+      "source_file": "src/pages/admin/customers.astro"
+    },
+    {
+      "id": "page:/admin/detox",
+      "type": "page",
+      "path": "/admin/detox",
+      "bucket": "admin",
+      "requires_auth": true,
+      "source_file": "src/pages/admin/detox.astro"
+    },
+    {
+      "id": "page:/admin/discounts",
+      "type": "page",
+      "path": "/admin/discounts",
+      "bucket": "admin",
+      "requires_auth": true,
+      "source_file": "src/pages/admin/discounts.astro"
+    },
+    {
+      "id": "page:/admin/forbidden",
+      "type": "page",
+      "path": "/admin/forbidden",
+      "bucket": "admin",
+      "requires_auth": true,
+      "source_file": "src/pages/admin/forbidden.astro"
+    },
+    {
+      "id": "page:/admin",
+      "type": "page",
+      "path": "/admin",
+      "bucket": "admin",
+      "requires_auth": true,
+      "source_file": "src/pages/admin/index.astro"
+    },
+    {
+      "id": "page:/admin/marketing",
+      "type": "page",
+      "path": "/admin/marketing",
+      "bucket": "admin",
+      "requires_auth": true,
+      "source_file": "src/pages/admin/marketing.astro"
+    },
+    {
+      "id": "page:/admin/orders",
+      "type": "page",
+      "path": "/admin/orders",
+      "bucket": "admin",
+      "requires_auth": true,
+      "source_file": "src/pages/admin/orders.astro"
+    },
+    {
+      "id": "page:/admin/pipeline",
+      "type": "page",
+      "path": "/admin/pipeline",
+      "bucket": "admin",
+      "requires_auth": true,
+      "source_file": "src/pages/admin/pipeline.astro"
+    },
+    {
+      "id": "page:/admin/products",
+      "type": "page",
+      "path": "/admin/products",
+      "bucket": "admin",
+      "requires_auth": true,
+      "source_file": "src/pages/admin/products.astro"
+    },
+    {
+      "id": "page:/admin/seo",
+      "type": "page",
+      "path": "/admin/seo",
+      "bucket": "admin",
+      "requires_auth": true,
+      "source_file": "src/pages/admin/seo.astro"
+    },
+    {
+      "id": "page:/admin/settings",
+      "type": "page",
+      "path": "/admin/settings",
+      "bucket": "admin",
+      "requires_auth": true,
+      "source_file": "src/pages/admin/settings.astro"
+    },
+    {
+      "id": "page:/admin/shipmonk",
+      "type": "page",
+      "path": "/admin/shipmonk",
+      "bucket": "admin",
+      "requires_auth": true,
+      "source_file": "src/pages/admin/shipmonk.astro"
+    },
+    {
+      "id": "page:/admin/shopify",
+      "type": "page",
+      "path": "/admin/shopify",
+      "bucket": "admin",
+      "requires_auth": true,
+      "source_file": "src/pages/admin/shopify.astro"
+    },
+    {
+      "id": "page:/admin/sign-in",
+      "type": "page",
+      "path": "/admin/sign-in",
+      "bucket": "admin",
+      "requires_auth": true,
+      "source_file": "src/pages/admin/sign-in.astro"
+    },
+    {
+      "id": "page:/admin/social",
+      "type": "page",
+      "path": "/admin/social",
+      "bucket": "admin",
+      "requires_auth": true,
+      "source_file": "src/pages/admin/social.astro"
+    },
+    {
+      "id": "page:/admin/support",
+      "type": "page",
+      "path": "/admin/support",
+      "bucket": "admin",
+      "requires_auth": true,
+      "source_file": "src/pages/admin/support.astro"
+    },
+    {
+      "id": "api:/api/chat",
+      "type": "api",
+      "path": "/api/chat",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/chat.ts"
+    },
+    {
+      "id": "api:/api/checkout",
+      "type": "api",
+      "path": "/api/checkout",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/checkout.ts"
+    },
+    {
+      "id": "api:/api/cron/seo-refresh",
+      "type": "api",
+      "path": "/api/cron/seo-refresh",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/cron/seo-refresh.ts"
+    },
+    {
+      "id": "api:/api/dashboard/cloudflare",
+      "type": "api",
+      "path": "/api/dashboard/cloudflare",
+      "method": "GET",
+      "safe_method": "GET",
+      "bucket": "api",
+      "source_file": "src/pages/api/dashboard/cloudflare.ts"
+    },
+    {
+      "id": "api:/api/dashboard/detox",
+      "type": "api",
+      "path": "/api/dashboard/detox",
+      "method": "GET",
+      "safe_method": "GET",
+      "bucket": "api",
+      "source_file": "src/pages/api/dashboard/detox.ts"
+    },
+    {
+      "id": "api:/api/dashboard/pagespeed",
+      "type": "api",
+      "path": "/api/dashboard/pagespeed",
+      "method": "GET",
+      "safe_method": "GET",
+      "bucket": "api",
+      "source_file": "src/pages/api/dashboard/pagespeed.ts"
+    },
+    {
+      "id": "api:/api/dashboard/resend",
+      "type": "api",
+      "path": "/api/dashboard/resend",
+      "method": "GET",
+      "safe_method": "GET",
+      "bucket": "api",
+      "source_file": "src/pages/api/dashboard/resend.ts"
+    },
+    {
+      "id": "api:/api/dashboard/stripe",
+      "type": "api",
+      "path": "/api/dashboard/stripe",
+      "method": "GET",
+      "safe_method": "GET",
+      "bucket": "api",
+      "source_file": "src/pages/api/dashboard/stripe.ts"
+    },
+    {
+      "id": "api:/api/healthcheck",
+      "type": "api",
+      "path": "/api/healthcheck",
+      "method": "GET",
+      "safe_method": "GET",
+      "bucket": "api",
+      "source_file": "src/pages/api/healthcheck.ts"
+    },
+    {
+      "id": "api:/api/integrations/[slug]/save",
+      "type": "api",
+      "path": "/api/integrations/[slug]/save",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/integrations/[slug]/save.ts"
+    },
+    {
+      "id": "api:/api/integrations/[slug]/test",
+      "type": "api",
+      "path": "/api/integrations/[slug]/test",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/integrations/[slug]/test.ts"
+    },
+    {
+      "id": "api:/api/integrations/health",
+      "type": "api",
+      "path": "/api/integrations/health",
+      "method": "GET",
+      "safe_method": "GET",
+      "bucket": "api",
+      "source_file": "src/pages/api/integrations/health.ts"
+    },
+    {
+      "id": "api:/api/integrations/test",
+      "type": "api",
+      "path": "/api/integrations/test",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/integrations/test.ts"
+    },
+    {
+      "id": "api:/api/newsletter",
+      "type": "api",
+      "path": "/api/newsletter",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/newsletter.ts"
+    },
+    {
+      "id": "api:/api/seo/ai-citation-check",
+      "type": "api",
+      "path": "/api/seo/ai-citation-check",
+      "method": "GET",
+      "safe_method": "GET",
+      "bucket": "api",
+      "source_file": "src/pages/api/seo/ai-citation-check.ts"
+    },
+    {
+      "id": "api:/api/seo/backlinks",
+      "type": "api",
+      "path": "/api/seo/backlinks",
+      "method": "GET",
+      "safe_method": "GET",
+      "bucket": "api",
+      "source_file": "src/pages/api/seo/backlinks.ts"
+    },
+    {
+      "id": "api:/api/seo/competitors",
+      "type": "api",
+      "path": "/api/seo/competitors",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/seo/competitors.ts"
+    },
+    {
+      "id": "api:/api/seo/content-inventory",
+      "type": "api",
+      "path": "/api/seo/content-inventory",
+      "method": "GET",
+      "safe_method": "GET",
+      "bucket": "api",
+      "source_file": "src/pages/api/seo/content-inventory.ts"
+    },
+    {
+      "id": "api:/api/seo/gsc",
+      "type": "api",
+      "path": "/api/seo/gsc",
+      "method": "GET",
+      "safe_method": "GET",
+      "bucket": "api",
+      "source_file": "src/pages/api/seo/gsc.ts"
+    },
+    {
+      "id": "api:/api/seo/integrations",
+      "type": "api",
+      "path": "/api/seo/integrations",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/seo/integrations.ts"
+    },
+    {
+      "id": "api:/api/seo/keywords",
+      "type": "api",
+      "path": "/api/seo/keywords",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/seo/keywords.ts"
+    },
+    {
+      "id": "api:/api/seo/llms-txt",
+      "type": "api",
+      "path": "/api/seo/llms-txt",
+      "method": "GET",
+      "safe_method": "GET",
+      "bucket": "api",
+      "source_file": "src/pages/api/seo/llms-txt.ts"
+    },
+    {
+      "id": "api:/api/seo/rankings",
+      "type": "api",
+      "path": "/api/seo/rankings",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/seo/rankings.ts"
+    },
+    {
+      "id": "api:/api/seo/schema-check",
+      "type": "api",
+      "path": "/api/seo/schema-check",
+      "method": "GET",
+      "safe_method": "GET",
+      "bucket": "api",
+      "source_file": "src/pages/api/seo/schema-check.ts"
+    },
+    {
+      "id": "api:/api/seo/trends",
+      "type": "api",
+      "path": "/api/seo/trends",
+      "method": "GET",
+      "safe_method": "GET",
+      "bucket": "api",
+      "source_file": "src/pages/api/seo/trends.ts"
+    },
+    {
+      "id": "api:/api/support/[id]/assign",
+      "type": "api",
+      "path": "/api/support/[id]/assign",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/support/[id]/assign.ts"
+    },
+    {
+      "id": "api:/api/support/[id]/refund",
+      "type": "api",
+      "path": "/api/support/[id]/refund",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/support/[id]/refund.ts"
+    },
+    {
+      "id": "api:/api/support/[id]/reply",
+      "type": "api",
+      "path": "/api/support/[id]/reply",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/support/[id]/reply.ts"
+    },
+    {
+      "id": "api:/api/support/[id]/resolve",
+      "type": "api",
+      "path": "/api/support/[id]/resolve",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/support/[id]/resolve.ts"
+    },
+    {
+      "id": "api:/api/support/[id]/snooze",
+      "type": "api",
+      "path": "/api/support/[id]/snooze",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/support/[id]/snooze.ts"
+    },
+    {
+      "id": "api:/api/support/[id]/status",
+      "type": "api",
+      "path": "/api/support/[id]/status",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/support/[id]/status.ts"
+    },
+    {
+      "id": "api:/api/support/[id]",
+      "type": "api",
+      "path": "/api/support/[id]",
+      "method": "GET",
+      "safe_method": "GET",
+      "bucket": "api",
+      "source_file": "src/pages/api/support/[id].ts"
+    },
+    {
+      "id": "api:/api/support",
+      "type": "api",
+      "path": "/api/support",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/support/index.ts"
+    },
+    {
+      "id": "api:/api/team/[email]/avatar",
+      "type": "api",
+      "path": "/api/team/[email]/avatar",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/team/[email]/avatar.ts"
+    },
+    {
+      "id": "api:/api/team/[email]/role",
+      "type": "api",
+      "path": "/api/team/[email]/role",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/team/[email]/role.ts"
+    },
+    {
+      "id": "api:/api/team/[email]/suspend",
+      "type": "api",
+      "path": "/api/team/[email]/suspend",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/team/[email]/suspend.ts"
+    },
+    {
+      "id": "api:/api/team/[email]",
+      "type": "api",
+      "path": "/api/team/[email]",
+      "method": "GET",
+      "safe_method": "GET",
+      "bucket": "api",
+      "source_file": "src/pages/api/team/[email].ts"
+    },
+    {
+      "id": "api:/api/team",
+      "type": "api",
+      "path": "/api/team",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/team/index.ts"
+    },
+    {
+      "id": "api:/api/test-relay",
+      "type": "api",
+      "path": "/api/test-relay",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/test-relay.ts"
+    },
+    {
+      "id": "api:/api/webhooks/shipmonk",
+      "type": "api",
+      "path": "/api/webhooks/shipmonk",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/webhooks/shipmonk.ts"
+    },
+    {
+      "id": "api:/api/webhooks/stripe",
+      "type": "api",
+      "path": "/api/webhooks/stripe",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/webhooks/stripe.ts"
+    },
+    {
+      "id": "api:/api/zerotouch/start",
+      "type": "api",
+      "path": "/api/zerotouch/start",
+      "method": "POST",
+      "bucket": "api",
+      "source_file": "src/pages/api/zerotouch/start.ts"
+    },
+    {
+      "id": "api:/api/zerotouch/status",
+      "type": "api",
+      "path": "/api/zerotouch/status",
+      "method": "GET",
+      "safe_method": "GET",
+      "bucket": "api",
+      "source_file": "src/pages/api/zerotouch/status.ts"
+    },
+    {
+      "id": "page:/blog",
+      "type": "page",
+      "path": "/blog",
+      "bucket": "content",
+      "requires_auth": false,
+      "source_file": "src/pages/blog/index.astro"
+    },
+    {
+      "id": "page:/cart",
+      "type": "page",
+      "path": "/cart",
+      "bucket": "payment",
+      "requires_auth": false,
+      "source_file": "src/pages/cart.astro"
+    },
+    {
+      "id": "page:/collections/all",
+      "type": "page",
+      "path": "/collections/all",
+      "bucket": "public",
+      "requires_auth": false,
+      "source_file": "src/pages/collections/all.astro"
+    },
+    {
+      "id": "page:/",
+      "type": "page",
+      "path": "/",
+      "bucket": "public",
+      "requires_auth": false,
+      "source_file": "src/pages/index.astro"
+    },
+    {
+      "id": "page:/pages/faq",
+      "type": "page",
+      "path": "/pages/faq",
+      "bucket": "public",
+      "requires_auth": false,
+      "source_file": "src/pages/pages/faq.astro"
+    },
+    {
+      "id": "page:/pages/how-it-works",
+      "type": "page",
+      "path": "/pages/how-it-works",
+      "bucket": "public",
+      "requires_auth": false,
+      "source_file": "src/pages/pages/how-it-works.astro"
+    },
+    {
+      "id": "page:/pages/our-story",
+      "type": "page",
+      "path": "/pages/our-story",
+      "bucket": "public",
+      "requires_auth": false,
+      "source_file": "src/pages/pages/our-story.astro"
+    },
+    {
+      "id": "page:/thank-you",
+      "type": "page",
+      "path": "/thank-you",
+      "bucket": "public",
+      "requires_auth": false,
+      "source_file": "src/pages/thank-you.astro"
     }
   ]
 }

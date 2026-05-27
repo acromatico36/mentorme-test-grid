@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Trust Grid</title>
+  <link rel="stylesheet" href="./widget.css" />
+</head>
+<body>
+  <div id="trust-grid" data-status-url="/test-grid/api/status.json" data-poll="60000">
+    <header class="tg-head">
+      <div class="tg-title">
+        <span class="tg-dot" id="tg-dot"></span>
+        <span class="tg-label" id="tg-label">Checking system status...</span>
+      </div>
+      <div class="tg-meta">
+        <span id="tg-stamp">--</span>
+      </div>
+    </header>
+    <div class="tg-grid" id="tg-grid"></div>
+    <footer class="tg-foot">
+      <span>Powered by <a href="https://github.com/acromatico36/mentorme-test-grid" target="_blank" rel="noopener">mentorme-test-grid</a></span>
+    </footer>
+  </div>
+  <script src="./widget.js"></script>
+</body>
+</html>

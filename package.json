@@ -1,0 +1,46 @@
+{
+  "name": "mentorme-test-grid",
+  "version": "1.0.0",
+  "description": "Universal test grid: auto-discover -> generate -> run -> embed. Multi-agent. Drop into any project.",
+  "type": "module",
+  "scripts": {
+    "discover": "node scripts/discover.mjs",
+    "generate": "node scripts/generate-tests.mjs",
+    "run": "node scripts/run-grid.mjs",
+    "embed": "node scripts/embed-widget.mjs",
+    "fanout": "node scripts/fanout.mjs",
+    "test": "playwright test",
+    "test:install-browsers": "playwright install --with-deps chromium"
+  },
+  "bin": {
+    "test-grid": "scripts/cli.mjs"
+  },
+  "keywords": [
+    "testing",
+    "playwright",
+    "test-grid",
+    "trust-signal",
+    "e2e",
+    "smoke-tests",
+    "visual-regression",
+    "multi-agent",
+    "astro",
+    "next",
+    "cloudflare-pages"
+  ],
+  "author": "Italo Campilii <italo@acromatico.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/acromatico36/mentorme-test-grid.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.48.0",
+    "chalk": "^5.3.0",
+    "fast-glob": "^3.3.2",
+    "ora": "^8.1.0"
+  }
+}

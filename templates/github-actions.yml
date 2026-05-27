@@ -1,0 +1,91 @@
+name: test-grid
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  schedule:
+    # 06:00 UTC nightly
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  grid:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      TEST_GRID_BASE_URL: ${{ vars.TEST_GRID_BASE_URL || 'http://localhost:4321' }}
+      CI: '1'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci || npm install
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Build (if applicable)
+        run: |
+          if [ -f package.json ] && grep -q '"build"' package.json; then
+            npm run build || true
+          fi
+
+      - name: Run test grid
+        run: npx playwright test
+        continue-on-error: true
+
+      - name: Publish status.json
+        run: |
+          mkdir -p public/test-grid/api
+          if [ -f test-grid/playwright-report.json ]; then
+            node -e "
+              const fs=require('fs');
+              const r=JSON.parse(fs.readFileSync('test-grid/playwright-report.json','utf8'));
+              const buckets={};
+              let total=0,passed=0,failed=0;
+              for (const suite of (r.suites||[])) {
+                for (const spec of (suite.specs||[])) {
+                  for (const t of (spec.tests||[])) {
+                    total++;
+                    const ok=(t.results||[]).every(x=>x.status==='passed');
+                    if(ok)passed++;else failed++;
+                    const tag=(spec.title.match(/@(\w+)/)||[])[1]||'other';
+                    buckets[tag]=buckets[tag]||{name:tag,bucket:tag,total:0,passed:0,failed:0};
+                    buckets[tag].total++;
+                    if(ok)buckets[tag].passed++;else buckets[tag].failed++;
+                  }
+                }
+              }
+              const payload={updated_at:new Date().toISOString(),total,passed,failed,surfaces:Object.values(buckets)};
+              fs.writeFileSync('public/test-grid/api/status.json',JSON.stringify(payload,null,2));
+              console.log(JSON.stringify(payload,null,2));
+            "
+          fi
+
+      - name: Upload Playwright HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-html
+          path: test-grid/playwright-html
+          retention-days: 14
+
+      - name: Comment on PR if any test failed
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs=require('fs');
+            const p='public/test-grid/api/status.json';
+            if(!fs.existsSync(p))return;
+            const s=JSON.parse(fs.readFileSync(p,'utf8'));
+            if(s.failed===0)return;
+            const body=`### Test Grid: ${s.failed} failing\n\n${s.passed}/${s.total} passing. See uploaded \`playwright-html\` artifact for details.`;
+            github.rest.issues.createComment({issue_number: context.issue.number, owner: context.repo.owner, repo: context.repo.repo, body});

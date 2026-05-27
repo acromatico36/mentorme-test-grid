@@ -1,0 +1,45 @@
+import { test, expect } from '@playwright/test';
+import fs from 'node:fs';
+import path from 'node:path';
+
+/**
+ * Visual regression baselines.
+ * - First run: captures baseline screenshots into tests/__snapshots__/
+ * - Subsequent runs: diffs against baseline; fails on visual regression
+ *
+ * Tweak per-page selectors to mask volatile regions (timestamps, ads, etc).
+ */
+
+type Surface = {
+  id: string;
+  type: 'page';
+  path: string;
+  requires_auth?: boolean;
+};
+
+const surfaceFile = path.resolve(process.cwd(), 'discovered-surface.json');
+const surface = fs.existsSync(surfaceFile)
+  ? JSON.parse(fs.readFileSync(surfaceFile, 'utf8'))
+  : { surfaces: [] };
+
+const publicPages: Surface[] = (surface.surfaces || [])
+  .filter((s: Surface) => s.type === 'page' && !s.requires_auth)
+  .slice(0, 5); // cap visual baseline to top 5 to keep runs fast
+
+if (publicPages.length === 0) {
+  test('visual placeholder — no public pages', async () => {
+    expect(true).toBe(true);
+  });
+} else {
+  for (const surf of publicPages) {
+    test(`@visual ${surf.path}`, async ({ page }, testInfo) => {
+      await page.goto(surf.path, { waitUntil: 'networkidle' });
+      await page.waitForTimeout(500); // settle animations
+      await expect(page).toHaveScreenshot(`${surf.id || surf.path.replace(/[^a-z0-9]/gi, '_')}.png`, {
+        fullPage: false,
+        maxDiffPixelRatio: 0.02,
+        animations: 'disabled',
+      });
+    });
+  }
+}
